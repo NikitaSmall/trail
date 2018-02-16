@@ -18,4 +18,12 @@ RSpec.describe Trail do
 
     expect(Trail.config.base_url).to eq(example_url)
   end
+
+  it 'should raise an error when requested configuration is `nil`' do
+    Trail.configure do |config|
+      config.base_url = example_url
+    end
+
+    expect { Trail.config.username }.to raise_error(Trail::Errors::UninitializedError)
+  end
 end

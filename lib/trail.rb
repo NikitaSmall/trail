@@ -5,6 +5,11 @@ module Trail
   autoload :Config, 'trail/config'
   autoload :Client, 'trail/client'
 
+  # General Errors module for Trail gem
+  module Errors
+    autoload :UninitializedError, 'trail/errors/uninitialized_error'
+  end
+
   class << self
     attr_accessor :config
 
