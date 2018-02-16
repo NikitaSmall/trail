@@ -1,5 +1,15 @@
-require "trail/version"
+require 'trail/version'
 
 module Trail
-  # Your code goes here...
+  autoload :Config, 'trail/config'
+  autoload :Client, 'trail/client'
+
+  class << self
+    attr_accessor :config
+
+    def configure
+      self.config ||= Trail::Config.new
+      yield(config)
+    end
+  end
 end
