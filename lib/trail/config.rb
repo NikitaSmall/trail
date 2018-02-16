@@ -6,10 +6,9 @@ module Trail
 
     CONFIG_FIELDS.each do |config_field|
       define_method(config_field) do
-        field = instance_variable_get("@#{config_field}")
-        raise Trail::Errors::UninitializedError, config_field if field.nil?
-
-        field
+        instance_variable_get("@#{config_field}").tap do |field|
+          raise Trail::Errors::UninitializedError, config_field if field.nil?
+        end
       end
 
       define_method("#{config_field}=".to_sym) do |value|
