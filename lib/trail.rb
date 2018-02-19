@@ -8,8 +8,7 @@ module Trail
   autoload :Config, 'trail/config'
   autoload :Client, 'trail/client'
 
-  autoload :Response,      'trail/response'
-  autoload :RequestSender, 'trail/request_sender'
+  autoload :Response, 'trail/response'
 
   # General Errors module for Trail gem
   module Errors
