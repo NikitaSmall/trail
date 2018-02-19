@@ -16,6 +16,7 @@ RSpec.describe Trail::Client do
       config.base_url = base_url
       config.username = username
       config.password = password
+      config.api_path = ''
     end
   end
 

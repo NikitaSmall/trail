@@ -14,10 +14,11 @@ module Trail
 
       private
 
-      FULL_URL = '%{base_url}%{url}'.freeze
+      FULL_URL = '%{base_url}%{api_path}%{url}'.freeze
 
       def prepare_full_url(url)
-        format(FULL_URL, base_url: Trail.config.base_url, url: url)
+        format(FULL_URL, base_url: Trail.config.base_url,
+                         url: url, api_path: Trail.config.api_path)
       end
 
       def transform_payload_to_get(url, payload)
