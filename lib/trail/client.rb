@@ -21,9 +21,9 @@ module Trail
       end
 
       def transform_payload_to_get(url, payload)
-        payload.reduce("#{url}?") do |result_url, parameter|
-          "#{result_url}#{parameter[0]}=#{parameter[1]}&"
-        end[0...-1]
+        payload.reduce("#{url}?") do |result_url, (parameter_name, parameter_value)|
+          "#{result_url}#{parameter_name}=#{parameter_value}&"
+        end.chomp('&')
       end
 
       def send_request(method, url, payload = nil)
